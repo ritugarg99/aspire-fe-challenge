@@ -24,8 +24,7 @@ A web application for managing debit cards, inspired by the real Aspire applicat
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd fe_challenge/app
+git clone https://github.com/ritugarg99/aspire-fe-challenge
 ```
 
 2. Install dependencies:
@@ -77,12 +76,3 @@ src/
 3. **TypeScript**: Implemented strict typing for better code quality and developer experience.
 
 4. **Local Storage**: Used for data persistence to simulate a backend without requiring server implementation.
-
-## Future Improvements
-
-1. Add unit tests using Jest and React Testing Library
-2. Implement proper error boundaries
-3. Add more card management features (e.g., transaction history)
-4. Improve accessibility
-5. Add proper backend integration
-6. Implement proper form validation with a form library like Formik or React Hook Form 

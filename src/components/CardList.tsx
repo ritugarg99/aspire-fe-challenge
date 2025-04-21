@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import SwipeableViews from 'react-swipeable-views';
 import { useCards } from '../context/CardContext';
 import Card from './Card';
+import AddCardModal from './AddCardModal';
 import eyeIcon from '../assets/remove_red_eye-24px.svg';
-import nextIcon from '../assets/next.svg';
+import addIcon from '../assets/add.svg';
 import freezeCardIcon from '../assets/Freeze card.svg';
 import spendLimitIcon from '../assets/Set spend limit.svg';
 import gPayIcon from '../assets/GPay.svg';
@@ -17,7 +18,6 @@ import flightsIcon from '../assets/flights.svg';
 import megaphoneIcon from '../assets/megaphone.svg';
 import businessIcon from '../assets/business-and-finance.svg';
 import downArrowIcon from '../assets/down-arrow.svg';
-import aspireLogo from '../assets/Aspire Logo.svg';
 
 const Container = styled.div`
   flex: 1;
@@ -29,6 +29,9 @@ const Container = styled.div`
 
 const Header = styled.div`
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Balance = styled.div`
@@ -315,9 +318,6 @@ const SwipeableViewsContainer = styled.div`
 `;
 
 const NewCardButton = styled.button`
-  position: absolute;
-  right: 0;
-  top: 0;
   background: #325BAF;
   color: white;
   border: none;
@@ -328,14 +328,14 @@ const NewCardButton = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 60px;
-  margin-top: 60px;
+  height: fit-content;
 `;
 
 const CardList: React.FC = () => {
   const { cards, freezeCard, unfreezeCard } = useCards();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransactionsOpen, setIsTransactionsOpen] = useState(false);
+  const [showAddCardModal, setShowAddCardModal] = useState(false);
 
   const handleSlideChange = (index: number) => {
     setActiveIndex(index);
@@ -367,12 +367,16 @@ const CardList: React.FC = () => {
             <span className="amount-value">3,000</span>
           </div>
         </Balance>
-        
-        <Tabs>
-          <Tab active>My debit cards</Tab>
-          <Tab>All company cards</Tab>
-        </Tabs>
+        <NewCardButton onClick={() => setShowAddCardModal(true)}>
+          <img src={addIcon} alt="New card" />
+          New card
+        </NewCardButton>
       </Header>
+      
+      <Tabs>
+        <Tab active>My debit cards</Tab>
+        <Tab>All company cards</Tab>
+      </Tabs>
 
       <MainContent>
         <LeftSection>
@@ -521,6 +525,10 @@ const CardList: React.FC = () => {
           <ViewAllLink>View all card transactions</ViewAllLink>
         </RightSection>
       </MainContent>
+
+      {showAddCardModal && (
+        <AddCardModal onClose={() => setShowAddCardModal(false)} />
+      )}
     </Container>
   );
 };

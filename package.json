@@ -14,8 +14,8 @@
     "@types/jest": "^27.5.2",
     "@types/react-swipeable-views": "^0.13.6",
     "@types/uuid": "^10.0.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-swipeable-views": "^0.14.0",
     "styled-components": "^6.1.17",
@@ -49,8 +49,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@types/styled-components": "^5.1.34"
   }
 }
